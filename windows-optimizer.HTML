@@ -1,0 +1,336 @@
+<html>
+
+
+<head>
+
+<title>Windows 11 Optimizer Pro</title>
+
+<style>
+body 
+{
+    font-family: Arial, sans-serif;
+    background:#0b1220;
+    color:#e5e7eb;
+    padding:20px;
+}
+h1 {
+    text-align:center;
+    color:#38bdf8;
+}
+.section {
+    background:#020617;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+}
+.command {
+    background:#020617;
+    border:1px solid #334155;
+    border-radius:6px;
+    padding:12px;
+    margin-top:10px;
+    position:relative;
+}
+code {
+    color:#fbbf24;
+}
+button.copy {
+    position:absolute;
+    right:10px;
+    top:10px;
+    background:#2563eb;
+    border:none;
+    color:white;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+.warning {
+    color:#f87171;
+    font-weight:bold;
+}
+select {
+    padding:7px;
+    border-radius:6px;
+    font-size:16px;
+}
+.footer {
+    text-align:center;
+    opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="title">Windows 11 Optimization Commands</h1>
+
+<center>
+<select onchange="setLanguage(this.value)">
+<option value="en">English</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="ar">العربية</option>
+<option value="pt">Português</option>
+<option value="ru">Русский</option>
+</select>
+</center>
+
+<br>
+
+<!-- BEFORE -->
+<div class="section">
+<h2 id="before_title">Before You Start</h2>
+
+<p id="before_steps">
+1. Press Windows + S<br>
+2. Type: Create a restore point<br>
+3. Open it<br>
+4. Click Create<br>
+5. Name it: Before Optimization
+</p>
+
+<p class="warning" id="admin_warn">
+Always run commands as Administrator
+</p>
+</div>
+
+<!-- SYSTEM REPAIR -->
+<div class="section">
+<h2 id="sys_title">System Repair & Health</h2>
+
+<p id="sys_steps">
+1. Press Windows + X<br>
+2. Click Terminal (Admin)<br>
+3. Paste command<br>
+4. Press Enter<br>
+5. Wait until finished<br>
+6. Restart PC
+</p>
+
+<div class="command">
+<code>sfc /scannow</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>DISM /Online /Cleanup-Image /RestoreHealth</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>chkdsk /f /r</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<!-- PERFORMANCE -->
+<div class="section">
+<h2 id="perf_title">Performance Optimization</h2>
+
+<p id="perf_steps">
+1. Open Terminal (Admin)<br>
+2. Paste command<br>
+3. Press Enter<br>
+4. Restart PC if required
+</p>
+
+<div class="command">
+<code>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>powercfg /setactive e9a42b02-d5df-448d-aa00-03f14749eb61</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>powercfg /h off</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>wmic computersystem where name="%computername%" set AutomaticManagedPagefile=True</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<!-- CLEANUP -->
+<div class="section">
+<h2 id="clean_title">Disk Cleanup</h2>
+
+<p id="clean_steps">
+1. Press Windows + R<br>
+2. Type command<br>
+3. Press Enter<br>
+4. Select Drive C<br>
+5. Check all boxes<br>
+6. Click OK
+</p>
+
+<div class="command">
+<code>cleanmgr</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>cleanmgr /sageset:1</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>cleanmgr /sagerun:1</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>del /s /q %temp%\*</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<!-- NETWORK -->
+<div class="section">
+<h2 id="net_title">Network Optimization</h2>
+
+<p id="net_steps">
+1. Open Terminal (Admin)<br>
+2. Paste command<br>
+3. Press Enter<br>
+4. Restart PC if needed
+</p>
+
+<div class="command">
+<code>ipconfig /flushdns</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>netsh int tcp set global autotuninglevel=normal</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>netsh winsock reset</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<!-- GAMING -->
+<div class="section">
+<h2 id="game_title">Gaming Optimization</h2>
+
+<p id="game_steps">
+1. Open Terminal (Admin)<br>
+2. Paste command<br>
+3. Press Enter<br>
+4. Restart PC
+</p>
+
+<div class="command">
+<code>bcdedit /set useplatformclock false</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<!-- UPDATE -->
+<div class="section">
+<h2 id="update_title">Windows Update Reset</h2>
+
+<p id="update_steps">
+1. Open Terminal (Admin)<br>
+2. Run stop command<br>
+3. Wait<br>
+4. Run start command
+</p>
+
+<div class="command">
+<code>net stop wuauserv</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>net start wuauserv</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<!-- STARTUP -->
+<div class="section">
+<h2 id="start_title">Startup Optimization</h2>
+
+<p id="start_steps">
+1. Open command<br>
+2. Go to Startup tab<br>
+3. Disable unnecessary apps
+</p>
+
+<div class="command">
+<code>msconfig</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+<div class="command">
+<code>taskmgr</code>
+<button class="copy" onclick="copy(this)">Copy</button>
+</div>
+
+</div>
+
+<div class="footer">
+Windows 11 Optimizer — Multi Language Version
+</div>
+
+<script>
+
+function copy(btn) {
+    let text = btn.previousElementSibling.innerText;
+    navigator.clipboard.writeText(text);
+    btn.innerText = "Copied!";
+    setTimeout(()=>btn.innerText="Copy",1000);
+}
+
+/* TRANSLATIONS */
+const lang = {
+
+fr:{
+title:"Optimisation Windows 11",
+before_title:"Avant de commencer",
+before_steps:"1. Windows + S<br>2. Créer un point de restauration<br>3. Ouvrir<br>4. Créer<br>5. Nom: Avant optimisation",
+admin_warn:"Toujours exécuter en mode administrateur",
+sys_title:"Réparation du système",
+sys_steps:"1. Windows + X<br>2. Terminal Admin<br>3. Coller<br>4. Entrée<br>5. Attendre<br>6. Redémarrer",
+perf_title:"Optimisation des performances",
+perf_steps:"1. Terminal Admin<br>2. Coller<br>3. Entrée<br>4. Redémarrer",
+clean_title:"Nettoyage du disque",
+clean_steps:"1. Windows + R<br>2. Taper commande<br>3. Entrée<br>4. Disque C<br>5. Tout cocher<br>6. OK",
+net_title:"Optimisation réseau",
+net_steps:"1. Terminal Admin<br>2. Coller<br>3. Entrée<br>4. Redémarrer",
+game_title:"Optimisation Gaming",
+game_steps:"1. Terminal Admin<br>2. Coller<br>3. Entrée<br>4. Redémarrer",
+update_title:"Réinitialisation Windows Update",
+update_steps:"1. Terminal Admin<br>2. Stop<br>3. Attendre<br>4. Start",
+start_title:"Optimisation démarrage",
+start_steps:"1. Ouvrir<br>2. Onglet démarrage<br>3. Désactiver inutiles"
+}
+
+};
+
+function setLanguage(l){
+if(!lang[l]) return;
+Object.keys(lang[l]).forEach(id=>{
+document.getElementById(id).innerHTML = lang[l][id];
+});
+}
+
+</script>
+
+</body>
+</html>
